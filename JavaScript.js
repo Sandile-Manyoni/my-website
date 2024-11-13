@@ -30,18 +30,23 @@ $(document).ready(function(){
         $('.menu-btn i').toggleClass("active");
     });
     // typing text animation script
+     $(document).ready(function(){
+    // Initialize Typed.js on the element with class 'typing'
     var typed = new Typed(".typing", {
-        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
+      strings: ["Web Developer", "Designer", "Freelancer", "Content Creator"], // Add your changing words here
+      typeSpeed: 100,
+      backSpeed: 60,
+      loop: true
     });
-    var typed = new Typed(".typing-2", {
-        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
+    
+    // Initialize Typed.js for the 'About' section's 'typing-2' class
+    var typed2 = new Typed(".typing-2", {
+      strings: ["Creative Thinker", "Problem Solver", "Quick Learner"], // Add more descriptive words here
+      typeSpeed: 100,
+      backSpeed: 60,
+      loop: true
     });
+  });
 
     // About me tabs
 
