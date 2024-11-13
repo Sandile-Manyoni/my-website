@@ -9,6 +9,11 @@ html{
     scroll-behavior: smooth;
 }
 
+.typing, .typing-2 {
+  color: #3498db; /* Customize color */
+  font-weight: bold;
+}
+
 
 /* custom scroll bar */
 ::-webkit-scrollbar {
