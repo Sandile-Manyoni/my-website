@@ -54,14 +54,15 @@ function opentab(tabName) {
     const tabContents = document.querySelectorAll('.tab-contents');
     const tabLinks = document.querySelectorAll('.tab-links');
 
-    // Hide all tabs and remove active class
+    // Remove active classes from all tabs and links
     tabContents.forEach((tab) => tab.classList.remove('active-tab'));
     tabLinks.forEach((link) => link.classList.remove('active-link'));
 
-    // Show the selected tab and add active class
+    // Add active class to the selected tab and link
     document.getElementById(tabName).classList.add('active-tab');
-    document.querySelector(`.tab-links[onclick="opentab('${tabName}')"]`).classList.add('active-link');
+    document.querySelector(`[onclick="opentab('${tabName}')"]`).classList.add('active-link');
 }
+
 
 
     // function opentab(tabName) {
