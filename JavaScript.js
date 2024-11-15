@@ -33,7 +33,7 @@ $(document).ready(function(){
      $(document).ready(function(){
     // Initialize Typed.js on the element with class 'typing'
     var typed = new Typed(".typing", {
-      strings: ["Web Developer", "Designer", "Freelancer", "Content Creator"], // Add your changing words here
+      strings: ["Web Developer", "UI Designer", "Business Analyst", "Data Analyst"], // Add your changing words here
       typeSpeed: 100,
       backSpeed: 60,
       loop: true
