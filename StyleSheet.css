@@ -161,17 +161,12 @@ section .title::after{
     filter: brightness(90%);
 }
 /* home section styling */
-.home{
-    display: flex;
-    background: url("images/Sandile.jpg") no-repeat center;
+.home {
+    background: url("images/Sandile.jpg") no-repeat center center/cover;
     height: 100vh;
-    color: #fff;
-    min-height: 500px;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
-    background-position: center;
+    color: #333; /* Changed text color to black */
 }
+
 .home .max-width{
     /* added margin  */
   margin: auto 0 auto 40px;    
@@ -301,15 +296,6 @@ margin: 10px 0;
 .tab-contents.active-tab{
     display: block;
     
-}
-
-.bars .line.sql, .bars .line.aspnet, .bars .line.csharp {
-    width: 75%; /* Adjust based on skill level */
-    height: 5px;
-    background: #ff004f;
-    margin-top: 5px;
-    border-radius: 5px;
-    position: relative;
 }
 
 
@@ -727,28 +713,48 @@ footer span a:hover{
 }
 
 /* bars in about me styling */
-.bars .line.html::before,
-.bars .line.css::before,
-.bars .line.js::before,
-.bars .line.sql::before,
-.bars .line.aspnet::before,
-.bars .line.csharp::before,
-.bars .line.powerbi::before {
-    content: "";
-    height: 100%;
+.bars {
+    margin-bottom: 15px;
+    position: relative;
+}
+.bars .info span {
+    font-weight: 600;
+    color: #333;
+}
+.bars .line {
+    position: relative;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+.bars .line::before {
+    content: '';
     position: absolute;
+    height: 100%;
     left: 0;
     top: 0;
     background: crimson;
+    width: 0;
     transition: width 0.3s ease-in-out;
 }
-.bars .line.html::before { width: 90%; }
-.bars .line.css::before { width: 80%; }
-.bars .line.js::before { width: 80%; }
-.bars .line.sql::before { width: 75%; }
-.bars .line.aspnet::before { width: 70%; }
-.bars .line.csharp::before { width: 65%; }
-.bars .line.powerbi::before { width: 70%; }
+.bars:nth-child(1) .line::before { width: 90%; }
+.bars:nth-child(2) .line::before { width: 80%; }
+.bars:nth-child(3) .line::before { width: 80%; }
+.bars:nth-child(4) .line::before { width: 75%; }
+.bars:nth-child(5) .line::before { width: 70%; }
+.bars:nth-child(6) .line::before { width: 65%; }
+.bars .line .percentage {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+}
+
 
 /* experiences section styling */
 .experience .card {
