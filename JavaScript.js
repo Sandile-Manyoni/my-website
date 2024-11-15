@@ -50,15 +50,19 @@ $(document).ready(function(){
 
     // About me tabs
 
-    $(document).ready(function() {
-        $(".tab-links").click(function(event) {
-            var tabname = event.currentTarget.getAttribute("data-tab");
-            $(".tab-links").removeClass("active-link");
-            $(".tab-contants").removeClass("active-tab");
-            $(this).addClass("active-link");
-            $("#" + tabname).addClass("active-tab");
-        });
-    });
+  function opentab(tabName) {
+    const tabContents = document.querySelectorAll('.tab-contents');
+    const tabLinks = document.querySelectorAll('.tab-links');
+
+    // Hide all tabs and remove active class
+    tabContents.forEach((tab) => tab.classList.remove('active-tab'));
+    tabLinks.forEach((link) => link.classList.remove('active-link'));
+
+    // Show the selected tab and add active class
+    document.getElementById(tabName).classList.add('active-tab');
+    document.querySelector(`.tab-links[onclick="opentab('${tabName}')"]`).classList.add('active-link');
+}
+
     
 
     // function opentab(tabName) {
