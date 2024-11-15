@@ -50,7 +50,7 @@ $(document).ready(function(){
 
     // About me tabs
 
-  function opentab(tabName) {
+function opentab(tabName) {
     const tabContents = document.querySelectorAll('.tab-contents');
     const tabLinks = document.querySelectorAll('.tab-links');
 
@@ -63,7 +63,6 @@ $(document).ready(function(){
     document.querySelector(`.tab-links[onclick="opentab('${tabName}')"]`).classList.add('active-link');
 }
 
-    
 
     // function opentab(tabName) {
     //     var i, tabcontent, tablinks;
