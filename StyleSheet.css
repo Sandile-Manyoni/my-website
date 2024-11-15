@@ -725,3 +725,48 @@ footer span a:hover{
         line-height: 38px;
     }
 }
+
+/* bars in about me styling */
+.bars .line.html::before,
+.bars .line.css::before,
+.bars .line.js::before,
+.bars .line.sql::before,
+.bars .line.aspnet::before,
+.bars .line.csharp::before,
+.bars .line.powerbi::before {
+    content: "";
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: crimson;
+    transition: width 0.3s ease-in-out;
+}
+.bars .line.html::before { width: 90%; }
+.bars .line.css::before { width: 80%; }
+.bars .line.js::before { width: 80%; }
+.bars .line.sql::before { width: 75%; }
+.bars .line.aspnet::before { width: 70%; }
+.bars .line.csharp::before { width: 65%; }
+.bars .line.powerbi::before { width: 70%; }
+
+/* experiences section styling */
+.experience .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+.experience .card:hover {
+    transform: scale(1.05);
+}
+.experience-content {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
