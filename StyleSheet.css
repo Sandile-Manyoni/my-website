@@ -303,6 +303,15 @@ margin: 10px 0;
     
 }
 
+.bars .line.sql, .bars .line.aspnet, .bars .line.csharp {
+    width: 75%; /* Adjust based on skill level */
+    height: 5px;
+    background: #ff004f;
+    margin-top: 5px;
+    border-radius: 5px;
+    position: relative;
+}
+
 
 /* education section styling */
 .education, .experience{
