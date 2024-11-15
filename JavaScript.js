@@ -63,37 +63,6 @@ function opentab(tabName) {
     document.querySelector(`[onclick="opentab('${tabName}')"]`).classList.add('active-link');
 }
 
-
-
-    // function opentab(tabName) {
-    //     var i, tabcontent, tablinks;
-    
-    //     // remove the active-tab class from all tab contents
-    //     tabcontent = document.getElementsByClassName("column right");
-    //     for (i = 0; i < tabcontent.length; i++) {
-    //         tabcontent[i].classList.remove("active-tab");
-    //     }
-    
-    //     // remove the active-link class from all tab links
-    //     tablinks = document.getElementsByClassName("tab-links");
-    //     for (i = 0; i < tablinks.length; i++) {
-    //         tablinks[i].classList.remove("active-link");
-    //     }
-    
-    //     // add the active-tab class to the selected tab content
-    //     document.getElementById(tabName).classList.add("active-tab");
-    
-    //     // add the active-link class to the selected tab link
-    //     var currentTab = document.getElementsByClassName('tab-links active-link');
-    //     currentTab[0].classList.remove('active-link');
-    //     document.getElementsByClassName(tabName)[0].classList.add("active-link");
-    // }
-    
-
-    // responsiveness for about page
-
-    
-
     // owl carousel script
     $('.carousel').owlCarousel({
         margin: 20,
