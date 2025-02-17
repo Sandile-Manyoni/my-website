@@ -242,7 +242,7 @@ section .title::after {
 
 /* About Section Styling */
 .about {
-    background: #f9f9f9; /* Light background for better contrast */
+    background: #f9f9f9;
     padding: 100px 0;
 }
 
@@ -254,12 +254,12 @@ section .title::after {
 .about .about-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px; /* Space between image and text */
+    gap: 40px;
     align-items: center;
 }
 
 .about .about-content .left {
-    flex: 1 1 40%; /* Flexible width for image */
+    flex: 1 1 40%;
     text-align: center;
 }
 
@@ -272,11 +272,11 @@ section .title::after {
 }
 
 .about .about-content .left img:hover {
-    transform: scale(1.05); /* Hover effect for image */
+    transform: scale(1.05);
 }
 
 .about .about-content .right {
-    flex: 1 1 55%; /* Flexible width for text */
+    flex: 1 1 55%;
 }
 
 .about .about-content .right .text {
@@ -297,7 +297,7 @@ section .title::after {
     margin-bottom: 20px;
 }
 
-.about .about-content .right a {
+.about .about-content .right .btn {
     display: inline-block;
     background: crimson;
     color: #fff;
@@ -309,7 +309,7 @@ section .title::after {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-.about .about-content .right a:hover {
+.about .about-content .right .btn:hover {
     background: #fff;
     color: crimson;
     border: 2px solid crimson;
@@ -319,7 +319,7 @@ section .title::after {
 .tab-titles {
     display: flex;
     margin: 20px 0 30px;
-    gap: 20px; /* Space between tab links */
+    gap: 20px;
 }
 
 .tab-links {
@@ -348,13 +348,13 @@ section .title::after {
 }
 
 .tab-links.active-link::after {
-    width: 100%; /* Full width underline for active tab */
+    width: 100%;
 }
 
 /* Tab Contents Styling */
 .tab-contents {
     display: none;
-    animation: fadeIn 0.5s ease; /* Smooth fade-in animation */
+    animation: fadeIn 0.5s ease;
 }
 
 .tab-contents.active-tab {
@@ -398,16 +398,12 @@ section .title::after {
     transition: width 1s ease;
 }
 
-.bars .line .percentage {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    z-index: 1;
-}
+.bars .line.html::before { width: 90%; }
+.bars .line.css::before { width: 80%; }
+.bars .line.js::before { width: 80%; }
+.bars .line.sql::before { width: 75%; }
+.bars .line.aspnet::before { width: 70%; }
+.bars .line.csharp::before { width: 65%; }
 
 /* Education List Styling */
 .tab-contents ul {
@@ -431,11 +427,6 @@ section .title::after {
     .about .about-content {
         flex-direction: column;
         text-align: center;
-    }
-
-    .about .about-content .left,
-    .about .about-content .right {
-        flex: 1 1 100%;
     }
 
     .about .about-content .left img {
