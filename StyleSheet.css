@@ -483,77 +483,78 @@ section .title::after {
 }
 
 /* Experience Section Styling */
+.experience {
+    background: #f9f9f9; /* Light background for better contrast */
+    padding: 100px 0;
+}
+
 .experience .title::after {
-    content: "who with me";
+    content: "my journey";
+    color: crimson;
 }
 
-.experience .carousel .card {
-    background: #222;
-    border-radius: 6px;
-    padding: 25px 35px;
-    text-align: center;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.experience .carousel .card:hover {
-    background: crimson;
-}
-
-.experience .carousel .card .box {
+.experience-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
 }
 
-.experience .carousel .card:hover .box {
-    transform: scale(1.05);
+.experience .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(33.333% - 40px); /* Three cards per row with gap */
+    max-width: calc(33.333% - 40px); /* Ensure cards don't exceed width */
 }
 
-.experience .carousel .card .text {
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 7px 0;
+.experience .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.experience .carousel .card img {
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid crimson;
-    transition: all 0.3s ease;
+.experience .card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-.experience .carousel .card:hover img {
-    border-color: #fff;
+.experience .card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
 }
 
-.owl-dots {
-    text-align: center;
-    margin-top: 20px;
+.experience .card p strong {
+    color: crimson;
+    font-weight: 600;
 }
 
-.owl-dot {
-    height: 13px;
-    width: 13px;
-    margin: 0 5px;
-    outline: none !important;
-    border-radius: 50%;
-    border: 2px solid crimson !important;
-    transition: all 0.3s ease;
+/* Responsive Design for Experience Section */
+@media (max-width: 991px) {
+    .experience .card {
+        flex: 1 1 calc(50% - 20px); /* Two cards per row on tablets */
+        max-width: calc(50% - 20px);
+    }
 }
 
-.owl-dot.active {
-    width: 35px;
-    border-radius: 14px;
-}
+@media (max-width: 767px) {
+    .experience .card {
+        flex: 1 1 100%; /* One card per row on mobile */
+        max-width: 100%;
+    }
 
-.owl-dot.active,
-.owl-dot:hover {
-    background: crimson !important;
+    .experience .card h3 {
+        font-size: 22px;
+    }
+
+    .experience .card p {
+        font-size: 14px;
+    }
 }
 
 /* Contact Section Styling */
