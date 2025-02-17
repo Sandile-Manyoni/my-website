@@ -48,7 +48,7 @@ $(document).ready(function () {
         loop: true
     });
 
-    // About me tabs
+// About me tabs
 function opentab(tabName) {
     const tabContents = document.querySelectorAll('.tab-contents');
     const tabLinks = document.querySelectorAll('.tab-links');
@@ -60,11 +60,6 @@ function opentab(tabName) {
     // Add active class to the selected tab and link
     document.getElementById(tabName).classList.add('active-tab');
     document.querySelector(`[onclick="opentab('${tabName}')"]`).classList.add('active-link');
-
-    // Animate skill bars
-    if (tabName === 'skills') {
-        animateSkillBars();
-    }
 }
 
 // Function to animate skill bars
