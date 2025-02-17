@@ -49,18 +49,37 @@ $(document).ready(function () {
     });
 
     // About me tabs
-    function opentab(tabName) {
-        const tabContents = document.querySelectorAll('.tab-contents');
-        const tabLinks = document.querySelectorAll('.tab-links');
+function opentab(tabName) {
+    const tabContents = document.querySelectorAll('.tab-contents');
+    const tabLinks = document.querySelectorAll('.tab-links');
 
-        // Remove active classes from all tabs and links
-        tabContents.forEach((tab) => tab.classList.remove('active-tab'));
-        tabLinks.forEach((link) => link.classList.remove('active-link'));
+    // Remove active classes from all tabs and links
+    tabContents.forEach((tab) => tab.classList.remove('active-tab'));
+    tabLinks.forEach((link) => link.classList.remove('active-link'));
 
-        // Add active class to the selected tab and link
-        document.getElementById(tabName).classList.add('active-tab');
-        document.querySelector(`[onclick="opentab('${tabName}')"]`).classList.add('active-link');
+    // Add active class to the selected tab and link
+    document.getElementById(tabName).classList.add('active-tab');
+    document.querySelector(`[onclick="opentab('${tabName}')"]`).classList.add('active-link');
+
+    // Animate skill bars
+    if (tabName === 'skills') {
+        animateSkillBars();
     }
+}
+
+// Function to animate skill bars
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.bars .line::before');
+    skillBars.forEach((bar) => {
+        const width = bar.dataset.width;
+        bar.style.width = width;
+    });
+}
+
+// Initialize skill bars on page load
+document.addEventListener('DOMContentLoaded', () => {
+    animateSkillBars();
+});
 
     // owl carousel script
     $('.carousel').owlCarousel({
