@@ -484,7 +484,7 @@ section .title::after {
 
 /* Experience Section Styling */
 .experience {
-    background: #f9f9f9; /* Light background for better contrast */
+    background: black; /* Light background for better contrast */
     padding: 100px 0;
 }
 
