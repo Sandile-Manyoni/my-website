@@ -16,6 +16,13 @@ html {
     font-weight: bold;
 }
 
+.circle-icon {
+    border-radius: 50%;
+    width: 32px;  /* or your preferred size */
+    height: 32px;
+    object-fit: cover;
+}
+
 /* Custom Scroll Bar */
 ::-webkit-scrollbar {
     width: 10px;
