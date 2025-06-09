@@ -100,9 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Enhanced Modal Functionality
+// Project Modal Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Open modal with smooth animation
+    // Open modal when project button is clicked
     const projectBtns = document.querySelectorAll('.project-btn');
     projectBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -110,31 +110,42 @@ document.addEventListener('DOMContentLoaded', function() {
             const modalId = this.getAttribute('href');
             const modal = document.querySelector(modalId);
             
-            // Smooth opening animation
             modal.style.display = 'block';
-            modal.style.opacity = '0';
             document.body.style.overflow = 'hidden';
             
+            // Add animation
+            modal.style.opacity = '0';
             setTimeout(() => {
                 modal.style.opacity = '1';
             }, 10);
         });
     });
 
-    // Close modal with smooth animation
-    const closeModals = document.querySelectorAll('.close-modal, .project-modal');
+    // Close modal when X is clicked
+    const closeModals = document.querySelectorAll('.close-modal');
     closeModals.forEach(close => {
         close.addEventListener('click', function(e) {
-            // Only close if clicking the X or the modal background
-            if(e.target.classList.contains('close-modal') || e.target === this) {
-                e.preventDefault();
-                const modal = this.closest('.project-modal') || this;
-                
-                // Smooth closing animation
-                modal.style.opacity = '0';
-                
+            e.preventDefault();
+            const modal = this.closest('.project-modal');
+            
+            // Add closing animation
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        });
+    });
+
+    // Close modal when clicking outside content
+    const modals = document.querySelectorAll('.project-modal');
+    modals.forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                // Add closing animation
+                this.style.opacity = '0';
                 setTimeout(() => {
-                    modal.style.display = 'none';
+                    this.style.display = 'none';
                     document.body.style.overflow = 'auto';
                 }, 300);
             }
@@ -143,11 +154,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close modal with ESC key
     document.addEventListener('keydown', function(e) {
-        if(e.key === 'Escape') {
+        if (e.key === 'Escape') {
             const openModal = document.querySelector('.project-modal[style*="display: block"]');
-            if(openModal) {
+            if (openModal) {
+                // Add closing animation
                 openModal.style.opacity = '0';
-                
                 setTimeout(() => {
                     openModal.style.display = 'none';
                     document.body.style.overflow = 'auto';
