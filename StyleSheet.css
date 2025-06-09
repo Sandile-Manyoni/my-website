@@ -247,86 +247,50 @@ section .title::after {
     background: none;
 }
 
-/* About Section Styling */
-.about {
-    background: #f9f9f9;
-    padding: 100px 0;
+/* About Section Enhancements */
+.about .circle-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #3498db;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
 }
 
-.about .title::after {
-    content: "who i am";
-    color: crimson;
+.about .circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.about .about-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
+.about .column.right {
+    padding-left: 50px;
 }
 
-.about .about-content .left {
-    flex: 1 1 40%;
-    text-align: center;
-}
-
-.about .about-content .left img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.about .about-content .left img:hover {
-    transform: scale(1.05);
-}
-
-.about .about-content .right {
-    flex: 1 1 55%;
-}
-
-.about .about-content .right .text {
+.about .text {
     font-size: 28px;
     font-weight: 600;
     color: #333;
     margin-bottom: 20px;
 }
 
-.about .about-content .right .text span {
-    color: crimson;
+.about .text span {
+    color: #3498db;
 }
 
-.about .about-content .right p {
+.about p {
     font-size: 16px;
     color: #555;
     line-height: 1.8;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.about .about-content .right .btn {
-    display: inline-block;
-    background: crimson;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 12px 30px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.about .about-content .right .btn:hover {
-    background: #fff;
-    color: crimson;
-    border: 2px solid crimson;
-}
-
-/* Tab Titles Styling */
+/* Tab Styling */
 .tab-titles {
     display: flex;
-    margin: 20px 0 30px;
-    gap: 20px;
+    margin: 30px 0;
+    border-bottom: 1px solid #ddd;
 }
 
 .tab-links {
@@ -334,38 +298,108 @@ section .title::after {
     font-weight: 500;
     cursor: pointer;
     position: relative;
-    color: #333;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-}
-
-.tab-links::after {
-    content: '';
-    width: 0;
-    height: 3px;
-    background: crimson;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transition: width 0.3s ease;
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: #555;
+    transition: all 0.3s ease;
 }
 
 .tab-links.active-link {
-    color: crimson;
+    color: #3498db;
 }
 
 .tab-links.active-link::after {
+    content: '';
     width: 100%;
+    height: 3px;
+    background: #3498db;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
 }
 
-/* Tab Contents Styling */
-.tab-contents {
-    display: none;
-    animation: fadeIn 0.5s ease;
+.tab-contents ul li {
+    list-style: none;
+    margin: 15px 0;
+    color: #555;
+    font-size: 16px;
 }
 
-.tab-contents.active-tab {
-    display: block;
+.tab-contents ul li span {
+    color: #3498db;
+    font-weight: 600;
+}
+
+/* Experience Section */
+.experience {
+    background: #f9f9f9;
+    padding: 100px 0;
+}
+
+.experience .title::after {
+    content: "professional journey";
+    color: #3498db;
+}
+
+.experience-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.experience .card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.experience .box {
+    text-align: center;
+}
+
+.experience .box i {
+    font-size: 50px;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.experience .box .text {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.experience .box p {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.experience .box p strong {
+    color: #3498db;
+}
+
+.experience .box ul {
+    text-align: left;
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.experience .box ul li {
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 /* Skills Bars Styling */
@@ -405,12 +439,13 @@ section .title::after {
     transition: width 1s ease;
 }
 
-.bars .line.html::before { width: 90%; }
-.bars .line.css::before { width: 80%; }
-.bars .line.js::before { width: 80%; }
-.bars .line.sql::before { width: 75%; }
-.bars .line.aspnet::before { width: 70%; }
-.bars .line.csharp::before { width: 65%; }
+/* Skill Bars */
+.bars .line.powerbi::before { width: 90%; }
+.bars .line.sql::before { width: 85%; }
+.bars .line.etl::before { width: 85%; }
+.bars .line.dw::before { width: 80%; }
+.bars .line.cloud::before { width: 75%; }
+.bars .line.ba::before { width: 80%; }
 
 /* Education List Styling */
 .tab-contents ul {
