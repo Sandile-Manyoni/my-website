@@ -33,34 +33,34 @@ $(document).ready(function () {
         $('.menu-btn i').toggleClass("active");
     });
 
-    // typing text animation script
+        // Update typing animations
     var typed = new Typed(".typing", {
-        strings: ["Web Developer", "UI Designer", "Business Analyst", "Data Analyst"], // Add your changing words here
+        strings: ["Business Intelligence Developer", "Software Developer", "BI Analyst", "Data Analyst", "ICT Lecturer", "Database Specialist"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
 
     var typed2 = new Typed(".typing-2", {
-        strings: ["Creative Thinker", "Problem Solver", "Quick Learner"], // Add more descriptive words here
+        strings: ["Data Expert", "Problem Solver", "Lifelong Learner", "Mentor"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
 
-// About me tabs
-function opentab(tabName) {
-    const tabContents = document.querySelectorAll('.tab-contents');
-    const tabLinks = document.querySelectorAll('.tab-links');
-
-    // Remove active classes from all tabs and links
-    tabContents.forEach((tab) => tab.classList.remove('active-tab'));
-    tabLinks.forEach((link) => link.classList.remove('active-link'));
-
-    // Add active class to the selected tab and link
-    document.getElementById(tabName).classList.add('active-tab');
-    document.querySelector(`[onclick="opentab('${tabName}')"]`).classList.add('active-link');
-}
+// Tab functionality
+    function opentab(tabName) {
+        const tabContents = document.querySelectorAll('.tab-contents');
+        const tabLinks = document.querySelectorAll('.tab-links');
+        
+        // Remove active classes from all tabs and links
+        tabContents.forEach((tab) => tab.classList.remove('active-tab'));
+        tabLinks.forEach((link) => link.classList.remove('active-link'));
+        
+        // Add active class to the selected tab and link
+        document.getElementById(tabName).classList.add('active-tab');
+        event.currentTarget.classList.add('active-link');
+    }
 
 // Function to animate skill bars
 function animateSkillBars() {
