@@ -45,24 +45,26 @@
         </div>
     </section>
 
+
+    <!-- About -->
   <section class="about" id="about">
     <div class="max-width">
         <h2 class="title">About Me</h2>
         <div class="about-content">
-            <!-- Left Column (Image and Typing) -->
+            <!-- Left Column (Image) -->
             <div class="column left">
                 <div class="circle-image">
                     <img src="images/Sandz.JPG" alt="Sandile Manyoni">
                 </div>
+            </div>
+            
+            <!-- Right Column (Description + Typing) -->
+            <div class="column right">
                 <div class="typing-container">
                     <div class="text-1">Hello, I'm</div>
                     <div class="text-2">Sandile Manyoni</div>
                     <div class="text-3">And I'm a <span class="typing"></span></div>
                 </div>
-            </div>
-            
-            <!-- Right Column (Description) -->
-            <div class="column right">
                 <div class="about-text">
                     <p>
                         A detail-oriented technology professional with expertise in Business Intelligence, Data Analytics, 
@@ -82,14 +84,14 @@
             </div>
         </div>
         
-        <!-- Tabs Section Below Both Columns -->
-        <div class="tabs-container">
+        <!-- Centered Tabs Section -->
+        <div class="tabs-wrapper">
             <div class="tab-titles">
-                <p class="tab-links active-link" onclick="opentab('education')">Education</p>
-                <p class="tab-links" onclick="opentab('skills')">Skills</p>
+                <button class="tab-link active" data-tab="education">Education</button>
+                <button class="tab-link" data-tab="skills">Skills</button>
             </div>
             
-            <div class="tab-contents active-tab" id="education">
+            <div class="tab-content active" id="education">
                 <ul>
                     <li><span>2025 (Expected)</span><br>Master of Commerce in Computer Science and Information Systems<br>Nelson Mandela University</li>
                     <li><span>2024</span><br>Bachelor of Commerce (Honours) in Information Systems and Business Management<br>Nelson Mandela University</li>
@@ -99,7 +101,7 @@
                 </ul>
             </div>
             
-            <div class="tab-contents" id="skills">
+            <div class="tab-content" id="skills">
                 <div class="bars">
                     <div class="info">
                         <span>Power BI & Data Visualization</span>
@@ -148,7 +150,7 @@
         </div>
     </div>
 </section>
-
+    
     <!-- Experience Section -->
     <section class="experience" id="experience">
         <div class="max-width">
