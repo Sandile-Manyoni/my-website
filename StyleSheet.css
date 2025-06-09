@@ -469,20 +469,32 @@ section .title::after {
     color: crimson;
 }
 
-/* Responsive Design */
+/* About Section - Mobile Responsiveness */
 @media (max-width: 768px) {
-    .about-content {
+    .about {
         flex-direction: column;
+        text-align: center;
     }
     
-    .about .circle-image {
-        width: 250px;
-        height: 250px;
+    .about .column.left,
+    .about .column.right {
+        width: 100%;
+    }
+    
+    .about .column.left {
         margin-bottom: 30px;
     }
     
-    .typing-container {
-        text-align: center;
+    .about .column.left img {
+        max-width: 70%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .tabs-wrapper {
+        width: 100%;
+        padding: 0 15px;
     }
     
     .tab-titles {
@@ -492,6 +504,23 @@ section .title::after {
     
     .tab-link {
         width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .about .column.left img {
+        max-width: 90%;
+    }
+    
+    .tab-content ul li {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .bars .info span {
+        font-size: 0.9rem;
     }
 }
 
