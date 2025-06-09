@@ -48,38 +48,33 @@ $(document).ready(function () {
         loop: true
     });
 
+// Tab Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const tabLinks = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
     
     tabLinks.forEach(link => {
         link.addEventListener('click', function() {
-            // Remove active from all
+            // Remove active class from all tabs and links
             tabLinks.forEach(l => l.classList.remove('active'));
             tabContents.forEach(c => c.classList.remove('active'));
-
-            // Add active to clicked tab and corresponding content
+            
+            // Add active class to clicked tab
             this.classList.add('active');
             const tabId = this.getAttribute('data-tab');
             document.getElementById(tabId).classList.add('active');
         });
     });
 
-    // Animate skill bars when Skills tab is clicked
-    document.querySelector('[data-tab="skills"]').addEventListener('click', () => {
-        const skillBars = document.querySelectorAll('.bars .line::before'); // this won't work
-        // So instead, animate using class manipulation or JS
-        const skillLines = document.querySelectorAll('.bars .line');
-        skillLines.forEach(line => {
-            const before = window.getComputedStyle(line, '::before');
-            // Unfortunately ::before cannot be modified directly via JS
-            // CSS already sets it based on class, so no JS is required here
-        });
-    });
+    // Initialize first tab as active if none is active
+    if (document.querySelectorAll('.tab-link.active').length === 0) {
+        tabLinks[0].classList.add('active');
+        tabContents[0].classList.add('active');
+    }
 });
 
-
-    // owl carousel script
+// Owl carousel script
+$(document).ready(function(){
     $('.carousel').owlCarousel({
         margin: 20,
         loop: true,
@@ -102,6 +97,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+    // Animate skill bars when Skills tab is clicked
+    document.querySelector('[data-tab="skills"]').addEventListener('click', () => {
+        const skillBars = document.querySelectorAll('.bars .line::before'); // this won't work
+        // So instead, animate using class manipulation or JS
+        const skillLines = document.querySelectorAll('.bars .line');
+        skillLines.forEach(line => {
+            const before = window.getComputedStyle(line, '::before');
+            // Unfortunately ::before cannot be modified directly via JS
+            // CSS already sets it based on class, so no JS is required here
+        });
+    });
+});
+
+
 
 // Project Modal Functionality
 document.addEventListener('DOMContentLoaded', function() {
