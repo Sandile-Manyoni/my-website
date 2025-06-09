@@ -45,22 +45,29 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="max-width">
-            <h2 class="title">About Me</h2>
-            <div class="about-content">
-                <div class="column left">
-                    <div class="circle-image">
-                        <img src="images/Sandz.JPG" alt="Sandile Manyoni">
-                    </div>
+  <section class="about" id="about">
+    <div class="max-width">
+        <h2 class="title">About Me</h2>
+        <div class="about-content">
+            <!-- Left Column (Image and Typing) -->
+            <div class="column left">
+                <div class="circle-image">
+                    <img src="images/Sandz.JPG" alt="Sandile Manyoni">
                 </div>
-                <div class="column right">
-                    <div class="text">I'm Sandile and I'm a <span class="typing-2"></span></div>
+                <div class="typing-container">
+                    <div class="text-1">Hello, I'm</div>
+                    <div class="text-2">Sandile Manyoni</div>
+                    <div class="text-3">And I'm a <span class="typing"></span></div>
+                </div>
+            </div>
+            
+            <!-- Right Column (Description) -->
+            <div class="column right">
+                <div class="about-text">
                     <p>
-                        A detail-oriented technology professional with expertise in Business Intelligence, Data Analytics, and ICT education. 
-                        With a strong academic background spanning Information Systems, Business Management, and Computer Science, 
-                        I bring a unique blend of technical and analytical skills to every project.
+                        A detail-oriented technology professional with expertise in Business Intelligence, Data Analytics, 
+                        and ICT education. With a strong academic background spanning Information Systems, Business Management, 
+                        and Computer Science, I bring a unique blend of technical and analytical skills to every project.
                     </p>
                     <p>
                         My passion lies in transforming complex data into actionable insights that drive business value. 
@@ -71,72 +78,76 @@
                         Beyond technical skills, I'm committed to continuous learning and knowledge sharing, 
                         as evidenced by my dual roles in both industry and academia.
                     </p>
-                    
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('education')">Education</p>
-                        <p class="tab-links" onclick="opentab('skills')">Skills</p>
-                    </div>
-                    
-                    <div class="tab-contents active-tab" id="education">
-                        <ul>
-                            <li><span>2025 (Expected)</span><br>Master of Commerce in Computer Science and Information Systems<br>Nelson Mandela University</li>
-                            <li><span>2024</span><br>Bachelor of Commerce (Honours) in Information Systems and Business Management<br>Nelson Mandela University</li>
-                            <li><span>2023</span><br>Bachelor of Commerce in Information Systems and Business Management<br>Nelson Mandela University</li>
-                            <li><span>2019</span><br>Postgraduate Diploma in Finance, Banking, and Investment Management<br>University of KwaZulu-Natal</li>
-                            <li><span>2017</span><br>Bachelor of Science in Biochemistry and Chemistry<br>University of KwaZulu-Natal</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="tab-contents" id="skills">
-                        <div class="bars">
-                            <div class="info">
-                                <span>Power BI & Data Visualization</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="line powerbi"></div>
-                        </div>
-                        <div class="bars">
-                            <div class="info">
-                                <span>SQL & Database Management</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="line sql"></div>
-                        </div>
-                        <div class="bars">
-                            <div class="info">
-                                <span>ETL Processes</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="line etl"></div>
-                        </div>
-                        <div class="bars">
-                            <div class="info">
-                                <span>Data Warehousing</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="line dw"></div>
-                        </div>
-                        <div class="bars">
-                            <div class="info">
-                                <span>Cloud Solutions (Azure/AWS)</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="line cloud"></div>
-                        </div>
-                        <div class="bars">
-                            <div class="info">
-                                <span>Business Analysis</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="line ba"></div>
-                        </div>
-                    </div>
-                    
-                    <a href="Sandile Manyoni_CV.pdf" class="btn" download>Download CV</a>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <!-- Tabs Section Below Both Columns -->
+        <div class="tabs-container">
+            <div class="tab-titles">
+                <p class="tab-links active-link" onclick="opentab('education')">Education</p>
+                <p class="tab-links" onclick="opentab('skills')">Skills</p>
+            </div>
+            
+            <div class="tab-contents active-tab" id="education">
+                <ul>
+                    <li><span>2025 (Expected)</span><br>Master of Commerce in Computer Science and Information Systems<br>Nelson Mandela University</li>
+                    <li><span>2024</span><br>Bachelor of Commerce (Honours) in Information Systems and Business Management<br>Nelson Mandela University</li>
+                    <li><span>2023</span><br>Bachelor of Commerce in Information Systems and Business Management<br>Nelson Mandela University</li>
+                    <li><span>2019</span><br>Postgraduate Diploma in Finance, Banking, and Investment Management<br>University of KwaZulu-Natal</li>
+                    <li><span>2017</span><br>Bachelor of Science in Biochemistry and Chemistry<br>University of KwaZulu-Natal</li>
+                </ul>
+            </div>
+            
+            <div class="tab-contents" id="skills">
+                <div class="bars">
+                    <div class="info">
+                        <span>Power BI & Data Visualization</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="line powerbi"></div>
+                </div>
+                <div class="bars">
+                    <div class="info">
+                        <span>SQL & Database Management</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="line sql"></div>
+                </div>
+                <div class="bars">
+                    <div class="info">
+                        <span>ETL Processes</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="line etl"></div>
+                </div>
+                <div class="bars">
+                    <div class="info">
+                        <span>Data Warehousing</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="line dw"></div>
+                </div>
+                <div class="bars">
+                    <div class="info">
+                        <span>Cloud Solutions (Azure/AWS)</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="line cloud"></div>
+                </div>
+                <div class="bars">
+                    <div class="info">
+                        <span>Business Analysis</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="line ba"></div>
+                </div>
+            </div>
+            
+            <a href="Sandile Manyoni_CV.pdf" class="btn" download>Download CV</a>
+        </div>
+    </div>
+</section>
 
     <!-- Experience Section -->
     <section class="experience" id="experience">
