@@ -48,37 +48,36 @@ $(document).ready(function () {
         loop: true
     });
 
-// Tab Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const tabLinks = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
     
     tabLinks.forEach(link => {
         link.addEventListener('click', function() {
-            // Remove active class from all tabs and links
+            // Remove active from all
             tabLinks.forEach(l => l.classList.remove('active'));
             tabContents.forEach(c => c.classList.remove('active'));
-            
-            // Add active class to clicked tab
+
+            // Add active to clicked tab and corresponding content
             this.classList.add('active');
             const tabId = this.getAttribute('data-tab');
             document.getElementById(tabId).classList.add('active');
         });
     });
 
-    // Initialize skill bars animation
-    const skillBars = document.querySelectorAll('.bars .line::before');
-    skillBars.forEach(bar => {
-        // This will trigger the CSS transition
-        bar.style.width = bar.style.width; 
+    // Animate skill bars when Skills tab is clicked
+    document.querySelector('[data-tab="skills"]').addEventListener('click', () => {
+        const skillBars = document.querySelectorAll('.bars .line::before'); // this won't work
+        // So instead, animate using class manipulation or JS
+        const skillLines = document.querySelectorAll('.bars .line');
+        skillLines.forEach(line => {
+            const before = window.getComputedStyle(line, '::before');
+            // Unfortunately ::before cannot be modified directly via JS
+            // CSS already sets it based on class, so no JS is required here
+        });
     });
 });
-}
 
-// Initialize skill bars on page load
-document.addEventListener('DOMContentLoaded', () => {
-    animateSkillBars();
-});
 
     // owl carousel script
     $('.carousel').owlCarousel({
