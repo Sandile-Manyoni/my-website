@@ -247,51 +247,52 @@ section .title::after {
     background: none;
 }
 
-/* About Section */
+/* About Section - Red, Black, White Theme */
 .about {
-    background: #f9f9f9;
+    background: white;
     padding: 100px 0;
 }
 
 .about .title {
     text-align: center;
-    margin-bottom: 60px;
+    font-size: 2.5rem;
+    color: black;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
 .about .title::after {
-    content: "who I am";
-    color: #3498db;
-    display: block;
-    font-size: 20px;
-    margin-top: 10px;
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: crimson;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .about-content {
     display: flex;
-    gap: 40px;
+    gap: 50px;
+    align-items: center;
     margin-bottom: 50px;
 }
 
-.about .column {
-    flex: 1;
-    min-width: 0;
-}
-
-/* Left Column (Image + Typing) */
+/* Left Column */
 .about .left {
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
 .about .circle-image {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid #3498db;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    border: 5px solid crimson;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .about .circle-image img {
@@ -300,157 +301,148 @@ section .title::after {
     object-fit: cover;
 }
 
+/* Right Column */
+.about .right {
+    flex: 1;
+}
+
 .typing-container {
-    text-align: center;
-    width: 100%;
+    margin-bottom: 30px;
 }
 
 .typing-container .text-1 {
-    font-size: 20px;
+    font-size: 1.2rem;
     color: #555;
+    margin-bottom: 5px;
 }
 
 .typing-container .text-2 {
-    font-size: 30px;
-    font-weight: 600;
-    color: #333;
-    margin: 5px 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 5px;
 }
 
 .typing-container .text-3 {
-    font-size: 20px;
+    font-size: 1.5rem;
     color: #555;
 }
 
 .typing-container .text-3 span {
-    color: #3498db;
+    color: crimson;
     font-weight: 600;
 }
 
-/* Right Column (Description) */
-.about .right {
-    display: flex;
-    align-items: center;
-}
-
-.about .about-text p {
-    font-size: 16px;
-    color: #555;
+.about-text p {
+    font-size: 1rem;
+    color: #333;
     line-height: 1.8;
     margin-bottom: 20px;
-    text-align: justify;
 }
 
-/* Tabs Container */
-.tabs-container {
-    width: 100%;
-    margin-top: 40px;
+/* Tabs Section */
+.tabs-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .tab-titles {
     display: flex;
-    margin-bottom: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
     border-bottom: 1px solid #ddd;
 }
 
-.tab-links {
-    font-size: 18px;
-    font-weight: 500;
+.tab-link {
+    background: none;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
     cursor: pointer;
     position: relative;
-    padding: 10px 20px;
-    margin-right: 10px;
-    color: #555;
     transition: all 0.3s ease;
 }
 
-.tab-links.active-link {
-    color: #3498db;
+.tab-link.active {
+    color: crimson;
 }
 
-.tab-links.active-link::after {
-    content: '';
+.tab-link.active::after {
+    content: "";
+    position: absolute;
     width: 100%;
     height: 3px;
-    background: #3498db;
-    position: absolute;
-    left: 0;
+    background: crimson;
     bottom: -1px;
+    left: 0;
 }
 
-.tab-contents {
+.tab-content {
     display: none;
     animation: fadeIn 0.5s ease;
 }
 
-.tab-contents.active-tab {
+.tab-content.active {
     display: block;
 }
 
 /* Education List */
-.tab-contents ul {
+.tab-content ul {
     list-style: none;
     padding: 0;
+    text-align: left;
 }
 
-.tab-contents ul li {
-    margin: 15px 0;
-    color: #555;
-    font-size: 16px;
-    line-height: 1.6;
-    padding-left: 20px;
-    position: relative;
+.tab-content ul li {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    color: #333;
 }
 
-.tab-contents ul li::before {
-    content: "•";
-    color: #3498db;
-    font-size: 20px;
-    position: absolute;
-    left: 0;
-    top: -2px;
-}
-
-.tab-contents ul li span {
-    color: #3498db;
+.tab-content ul li span {
+    color: crimson;
     font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
 }
 
 /* Skill Bars */
 .bars {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .bars .info {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .bars .info span {
-    font-size: 16px;
     color: #333;
+    font-weight: 500;
 }
 
 .bars .line {
-    height: 10px;
-    background: #e0e0e0;
-    border-radius: 5px;
-    position: relative;
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
     overflow: hidden;
 }
 
 .bars .line::before {
-    content: '';
-    position: absolute;
+    content: "";
+    display: block;
     height: 100%;
-    left: 0;
-    top: 0;
-    background: #3498db;
+    background: crimson;
     width: 0;
     transition: width 1s ease;
 }
 
+/* Initialize skill bar widths */
 .bars .line.powerbi::before { width: 90%; }
 .bars .line.sql::before { width: 85%; }
 .bars .line.etl::before { width: 85%; }
@@ -461,20 +453,20 @@ section .title::after {
 /* Download Button */
 .btn {
     display: inline-block;
-    background: #3498db;
-    color: #fff;
+    background: crimson;
+    color: white;
     padding: 12px 30px;
-    border-radius: 6px;
+    border-radius: 4px;
     text-decoration: none;
-    font-weight: 500;
-    margin-top: 20px;
+    font-weight: 600;
+    margin-top: 30px;
+    border: 2px solid crimson;
     transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background: #2980b9;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+    color: crimson;
 }
 
 /* Responsive Design */
@@ -484,12 +476,22 @@ section .title::after {
     }
     
     .about .circle-image {
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
+        margin-bottom: 30px;
+    }
+    
+    .typing-container {
+        text-align: center;
     }
     
     .tab-titles {
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tab-link {
+        width: 100%;
     }
 }
 
