@@ -48,19 +48,27 @@ $(document).ready(function () {
         loop: true
     });
 
-// Tab functionality
-    function opentab(tabName) {
-        const tabContents = document.querySelectorAll('.tab-contents');
-        const tabLinks = document.querySelectorAll('.tab-links');
-        
-        // Remove active classes from all tabs and links
-        tabContents.forEach((tab) => tab.classList.remove('active-tab'));
-        tabLinks.forEach((link) => link.classList.remove('active-link'));
-        
-        // Add active class to the selected tab and link
-        document.getElementById(tabName).classList.add('active-tab');
-        event.currentTarget.classList.add('active-link');
-    }
+function opentab(tabName) {
+    // Get all tab content elements
+    const tabContents = document.querySelectorAll('.tab-contents');
+    // Get all tab link elements
+    const tabLinks = document.querySelectorAll('.tab-links');
+    
+    // Remove active class from all tab contents
+    tabContents.forEach(tab => {
+        tab.classList.remove('active-tab');
+    });
+    
+    // Remove active class from all tab links
+    tabLinks.forEach(link => {
+        link.classList.remove('active-link');
+    });
+    
+    // Add active class to the selected tab content
+    document.getElementById(tabName).classList.add('active-tab');
+    // Add active class to the clicked tab link
+    event.currentTarget.classList.add('active-link');
+}
 
 // Function to animate skill bars
 function animateSkillBars() {
