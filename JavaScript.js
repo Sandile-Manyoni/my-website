@@ -99,3 +99,60 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Enhanced Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Open modal with smooth animation
+    const projectBtns = document.querySelectorAll('.project-btn');
+    projectBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const modalId = this.getAttribute('href');
+            const modal = document.querySelector(modalId);
+            
+            // Smooth opening animation
+            modal.style.display = 'block';
+            modal.style.opacity = '0';
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 10);
+        });
+    });
+
+    // Close modal with smooth animation
+    const closeModals = document.querySelectorAll('.close-modal, .project-modal');
+    closeModals.forEach(close => {
+        close.addEventListener('click', function(e) {
+            // Only close if clicking the X or the modal background
+            if(e.target.classList.contains('close-modal') || e.target === this) {
+                e.preventDefault();
+                const modal = this.closest('.project-modal') || this;
+                
+                // Smooth closing animation
+                modal.style.opacity = '0';
+                
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            }
+        });
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+        if(e.key === 'Escape') {
+            const openModal = document.querySelector('.project-modal[style*="display: block"]');
+            if(openModal) {
+                openModal.style.opacity = '0';
+                
+                setTimeout(() => {
+                    openModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            }
+        }
+    });
+});
