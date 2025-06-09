@@ -48,35 +48,31 @@ $(document).ready(function () {
         loop: true
     });
 
-function opentab(tabName) {
-    // Get all tab content elements
-    const tabContents = document.querySelectorAll('.tab-contents');
-    // Get all tab link elements
-    const tabLinks = document.querySelectorAll('.tab-links');
+// Tab Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
     
-    // Remove active class from all tab contents
-    tabContents.forEach(tab => {
-        tab.classList.remove('active-tab');
-    });
-    
-    // Remove active class from all tab links
     tabLinks.forEach(link => {
-        link.classList.remove('active-link');
+        link.addEventListener('click', function() {
+            // Remove active class from all tabs and links
+            tabLinks.forEach(l => l.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            const tabId = this.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
     });
-    
-    // Add active class to the selected tab content
-    document.getElementById(tabName).classList.add('active-tab');
-    // Add active class to the clicked tab link
-    event.currentTarget.classList.add('active-link');
-}
 
-// Function to animate skill bars
-function animateSkillBars() {
+    // Initialize skill bars animation
     const skillBars = document.querySelectorAll('.bars .line::before');
-    skillBars.forEach((bar) => {
-        const width = bar.dataset.width;
-        bar.style.width = width;
+    skillBars.forEach(bar => {
+        // This will trigger the CSS transition
+        bar.style.width = bar.style.width; 
     });
+});
 }
 
 // Initialize skill bars on page load
