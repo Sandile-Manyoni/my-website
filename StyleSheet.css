@@ -247,15 +247,51 @@ section .title::after {
     background: none;
 }
 
-/* About Section Enhancements */
+/* About Section */
+.about {
+    background: #f9f9f9;
+    padding: 100px 0;
+}
+
+.about .title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about .title::after {
+    content: "who I am";
+    color: #3498db;
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.about .column {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Left Column (Image + Typing) */
+.about .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .about .circle-image {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid #3498db;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
 
 .about .circle-image img {
@@ -264,32 +300,56 @@ section .title::after {
     object-fit: cover;
 }
 
-.about .column.right {
-    padding-left: 50px;
+.typing-container {
+    text-align: center;
+    width: 100%;
 }
 
-.about .text {
-    font-size: 28px;
+.typing-container .text-1 {
+    font-size: 20px;
+    color: #555;
+}
+
+.typing-container .text-2 {
+    font-size: 30px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 20px;
+    margin: 5px 0;
 }
 
-.about .text span {
+.typing-container .text-3 {
+    font-size: 20px;
+    color: #555;
+}
+
+.typing-container .text-3 span {
     color: #3498db;
+    font-weight: 600;
 }
 
-.about p {
+/* Right Column (Description) */
+.about .right {
+    display: flex;
+    align-items: center;
+}
+
+.about .about-text p {
     font-size: 16px;
     color: #555;
     line-height: 1.8;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
-/* Tab Styling */
+/* Tabs Container */
+.tabs-container {
+    width: 100%;
+    margin-top: 40px;
+}
+
 .tab-titles {
     display: flex;
-    margin: 30px 0;
+    margin-bottom: 20px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -318,11 +378,37 @@ section .title::after {
     bottom: -1px;
 }
 
-.tab-contents ul li {
+.tab-contents {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-contents.active-tab {
+    display: block;
+}
+
+/* Education List */
+.tab-contents ul {
     list-style: none;
+    padding: 0;
+}
+
+.tab-contents ul li {
     margin: 15px 0;
     color: #555;
     font-size: 16px;
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+}
+
+.tab-contents ul li::before {
+    content: "•";
+    color: #3498db;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: -2px;
 }
 
 .tab-contents ul li span {
@@ -330,93 +416,19 @@ section .title::after {
     font-weight: 600;
 }
 
-/* Experience Section */
-.experience {
-    background: #f9f9f9;
-    padding: 100px 0;
-}
-
-.experience .title::after {
-    content: "professional journey";
-    color: #3498db;
-}
-
-.experience-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.experience .card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.experience .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.experience .box {
-    text-align: center;
-}
-
-.experience .box i {
-    font-size: 50px;
-    color: #3498db;
-    margin-bottom: 20px;
-}
-
-.experience .box .text {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.experience .box p {
-    color: #555;
-    margin-bottom: 15px;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.experience .box p strong {
-    color: #3498db;
-}
-
-.experience .box ul {
-    text-align: left;
-    margin-top: 15px;
-    padding-left: 20px;
-}
-
-.experience .box ul li {
-    color: #555;
-    margin-bottom: 10px;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* Skills Bars Styling */
+/* Skill Bars */
 .bars {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .bars .info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 5px;
 }
 
 .bars .info span {
     font-size: 16px;
-    font-weight: 500;
     color: #333;
 }
 
@@ -434,12 +446,11 @@ section .title::after {
     height: 100%;
     left: 0;
     top: 0;
-    background: crimson;
+    background: #3498db;
     width: 0;
     transition: width 1s ease;
 }
 
-/* Skill Bars */
 .bars .line.powerbi::before { width: 90%; }
 .bars .line.sql::before { width: 85%; }
 .bars .line.etl::before { width: 85%; }
@@ -447,58 +458,38 @@ section .title::after {
 .bars .line.cloud::before { width: 75%; }
 .bars .line.ba::before { width: 80%; }
 
-/* Education List Styling */
-.tab-contents ul {
-    list-style: none;
-    padding: 0;
+/* Download Button */
+.btn {
+    display: inline-block;
+    background: #3498db;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: all 0.3s ease;
 }
 
-.tab-contents ul li {
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: #555;
-}
-
-.tab-contents ul li span {
-    color: crimson;
-    font-weight: 600;
+.btn:hover {
+    background: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Design */
-@media (max-width: 991px) {
-    .about .about-content {
+@media (max-width: 768px) {
+    .about-content {
         flex-direction: column;
-        text-align: center;
     }
-
-    .about .about-content .left img {
-        max-width: 80%;
+    
+    .about .circle-image {
+        width: 200px;
+        height: 200px;
     }
-
+    
     .tab-titles {
         justify-content: center;
-    }
-}
-
-@media (max-width: 767px) {
-    .about .about-content .right .text {
-        font-size: 24px;
-    }
-
-    .about .about-content .right p {
-        font-size: 14px;
-    }
-
-    .tab-links {
-        font-size: 16px;
-    }
-
-    .bars .info span {
-        font-size: 14px;
-    }
-
-    .tab-contents ul li {
-        font-size: 14px;
     }
 }
 
