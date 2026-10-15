@@ -1,182 +1,96 @@
-$(document).ready(function () {
-    $(window).scroll(function () {
-        // sticky navbar on scroll script
-        if (this.scrollY > 20) {
-            $('.navbar').addClass("sticky");
-        } else {
-            $('.navbar').removeClass("sticky");
-        }
+(() => {
+  "use strict";
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  const navAnchors = document.querySelectorAll(".nav-link, .nav-cta");
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
-        // scroll-up button show/hide script
-        if (this.scrollY > 500) {
-            $('.scroll-up-btn').addClass("show");
-        } else {
-            $('.scroll-up-btn').removeClass("show");
-        }
-    });
-
-    // slide-up script
-    $('.scroll-up-btn').click(function () {
-        $('html').animate({ scrollTop: 0 });
-        // removing smooth scroll on slide-up button click
-        $('html').css("scrollBehavior", "auto");
-    });
-
-    $('.navbar .menu li a').click(function () {
-        // applying again smooth scroll on menu items click
-        $('html').css("scrollBehavior", "smooth");
-    });
-
-    // toggle menu/navbar script
-    $('.menu-btn').click(function () {
-        $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
-    });
-
-        // Update typing animations
-    var typed = new Typed(".typing", {
-        strings: ["Business Intelligence Developer", "Software Developer", "BI Analyst", "Data Analyst", "ICT Lecturer", "Database Specialist"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-    var typed2 = new Typed(".typing-2", {
-        strings: ["Data Expert", "Problem Solver", "Lifelong Learner", "Mentor"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-// Tab Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Remove active class from all tabs and links
-            tabLinks.forEach(l => l.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-            
-            // Add active class to clicked tab
-            this.classList.add('active');
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-
-    // Initialize first tab as active if none is active
-    if (document.querySelectorAll('.tab-link.active').length === 0) {
-        tabLinks[0].classList.add('active');
-        tabContents[0].classList.add('active');
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    menuToggle.innerHTML = isOpen
+      ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+      : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+  });
+  navAnchors.forEach(link => link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-label", "Open navigation");
+      menuToggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
     }
-});
+  }));
 
-// Owl carousel script
-$(document).ready(function(){
-    $('.carousel').owlCarousel({
-        margin: 20,
-        loop: true,
-        autoplay: true,
-        autoplayTimeOut: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            600: {
-                items: 2,
-                nav: false
-            },
-            1000: {
-                items: 3,
-                nav: false
-            }
-        }
-    });
-});
+  const sections = document.querySelectorAll("main section[id], main section.hero");
+  const navItems = document.querySelectorAll(".nav-link");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id || "top";
+        navItems.forEach(link => link.classList.toggle("active", link.getAttribute("href") === `#${id}`));
+      });
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    sections.forEach(section => observer.observe(section));
+  }
 
-    // Animate skill bars when Skills tab is clicked
-    document.querySelector('[data-tab="skills"]').addEventListener('click', () => {
-        const skillBars = document.querySelectorAll('.bars .line::before'); // this won't work
-        // So instead, animate using class manipulation or JS
-        const skillLines = document.querySelectorAll('.bars .line');
-        skillLines.forEach(line => {
-            const before = window.getComputedStyle(line, '::before');
-            // Unfortunately ::before cannot be modified directly via JS
-            // CSS already sets it based on class, so no JS is required here
-        });
-    });
-});
+  // Profile chat: a local FAQ assistant. Connect a secure AI API/backend for generative answers.
+  const launcher = document.getElementById("chatLauncher");
+  const widget = document.getElementById("chatWidget");
+  const close = document.getElementById("chatClose");
+  const form = document.getElementById("chatForm");
+  const input = document.getElementById("chatInput");
+  const messages = document.getElementById("chatMessages");
+  const quickQuestions = document.querySelectorAll("[data-question]");
 
+  function setChatOpen(open) {
+    widget.classList.toggle("open", open);
+    widget.setAttribute("aria-hidden", String(!open));
+    launcher.setAttribute("aria-expanded", String(open));
+    launcher.setAttribute("aria-label", open ? "Close chat with Sandile's assistant" : "Open chat with Sandile's assistant");
+    if (open) setTimeout(() => input?.focus(), 100);
+  }
+  launcher?.addEventListener("click", () => setChatOpen(!widget.classList.contains("open")));
+  close?.addEventListener("click", () => setChatOpen(false));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && widget.classList.contains("open")) setChatOpen(false);
+  });
 
-
-// Project Modal Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Open modal when project button is clicked
-    const projectBtns = document.querySelectorAll('.project-btn');
-    projectBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const modalId = this.getAttribute('href');
-            const modal = document.querySelector(modalId);
-            
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            
-            // Add animation
-            modal.style.opacity = '0';
-            setTimeout(() => {
-                modal.style.opacity = '1';
-            }, 10);
-        });
-    });
-
-    // Close modal when X is clicked
-    const closeModals = document.querySelectorAll('.close-modal');
-    closeModals.forEach(close => {
-        close.addEventListener('click', function(e) {
-            e.preventDefault();
-            const modal = this.closest('.project-modal');
-            
-            // Add closing animation
-            modal.style.opacity = '0';
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 300);
-        });
-    });
-
-    // Close modal when clicking outside content
-    const modals = document.querySelectorAll('.project-modal');
-    modals.forEach(modal => {
-        modal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                // Add closing animation
-                this.style.opacity = '0';
-                setTimeout(() => {
-                    this.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            }
-        });
-    });
-
-    // Close modal with ESC key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const openModal = document.querySelector('.project-modal[style*="display: block"]');
-            if (openModal) {
-                // Add closing animation
-                openModal.style.opacity = '0';
-                setTimeout(() => {
-                    openModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            }
-        }
-    });
-});
+  const answers = [
+    {keys:["experience","work","career","job","role"], answer:"Sandile has over five years of combined experience across information management, reporting, systems and technology-enabled operations. He is currently a Lecturer – Computer Science & Information Systems Specialist at Emeris. Previous roles include ICT Data & Information Management Programme Coordinator and IT Systems & Database Specialist at IIE Rosebank College, PR & Marketing Coordinator, and Innovation Officer at Nelson Mandela University."},
+    {keys:["skill","technical","expertise","competenc","tools","technology","power bi","sql","excel"], answer:"His core areas include data and information management; data analysis and BI using Excel and Power BI; SQL and database design; ERP and enterprise applications; business and systems analysis; process documentation; data quality, controls and requirements-based testing; stakeholder communication and mentoring."},
+    {keys:["education","qualification","degree","study","academic","master","honours"], answer:"Sandile is completing a Master of Commerce in Computer Science and Information Systems at Nelson Mandela University. He holds a BCom Honours and BCom in Information Systems and Business Management from Nelson Mandela University, a Postgraduate Diploma in Finance, Banking and Investment Management from UKZN, and a BSc in Biochemistry and Chemistry from UKZN."},
+    {keys:["contact","email","phone","reach","connect","available","opportunit","hire"], answer:"You can contact Sandile at sandile.alwande@gmail.com or call +27 64 043 7562. Use the “Get in touch” section or email link on this page to start a conversation about professional opportunities."},
+    {keys:["about","who","background","profile"], answer:"Sandile Manyoni is an Information Systems and technology professional based in Gauteng, South Africa. His experience spans data management, business processes, reporting, systems analysis and ICT education. He enjoys turning complex information into useful insights and mentoring future technology professionals."},
+    {keys:["business analysis","business analyst","requirements","process"], answer:"Sandile's transferable business and systems analysis skills include gathering stakeholder requirements, analysing business processes, workflow mapping, functional validation, documenting requirements and communicating findings to technical and non-technical audiences."},
+    {keys:["data engineer","data engineering","data analyst","analytics","bi analyst","business intelligence"], answer:"His relevant foundation includes SQL, database structures and relationships, structured data processing, data validation, Excel, Power BI, operational reporting, trend and exception analysis, and data visualisation. This profile describes transferable skills rather than claiming every specialist role or tool."},
+    {keys:["audit","risk","control","compliance"], answer:"Relevant experience includes data accuracy and completeness checks, identifying errors and inconsistencies, requirements-based testing, documentation, process compliance and reviewing projects using operational, commercial and technology information."}
+  ];
+  function answerQuestion(question) {
+    const q = question.toLowerCase();
+    const match = answers.find(item => item.keys.some(key => q.includes(key)));
+    if (match) return match.answer;
+    return "I can help with Sandile's professional profile, experience, skills, education or contact details. Try asking “What are his key skills?”, “Tell me about his experience” or “How can I contact Sandile?”";
+  }
+  function addMessage(text, who) {
+    const bubble = document.createElement("div");
+    bubble.className = `chat-bubble ${who}`;
+    bubble.textContent = text;
+    messages.appendChild(bubble);
+    messages.scrollTop = messages.scrollHeight;
+  }
+  function sendQuestion(question) {
+    const clean = question.trim();
+    if (!clean) return;
+    addMessage(clean, "user");
+    input.value = "";
+    window.setTimeout(() => addMessage(answerQuestion(clean), "bot"), 220);
+  }
+  form?.addEventListener("submit", event => {
+    event.preventDefault();
+    sendQuestion(input.value);
+  });
+  quickQuestions.forEach(button => button.addEventListener("click", () => sendQuestion(button.dataset.question || "")));
+})();
